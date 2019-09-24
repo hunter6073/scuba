@@ -1,0 +1,38 @@
+This is the second version of the Simple C Utility for I/O Benchmark Analysis
+the version is mature and can run on both linux bash and Slurm for multi node preference.
+
+You can generate the output by running
+
+./runscript.sh 1000    # giving it an argument of how many memory blocks we require
+
+or 
+
+./runscript.sh # using the default number of memory blocks, which is 10 at the moment
+
+or
+
+sbatch runscript # the same as running ./runscript.sh, but in slurm
+
+
+currently, this code has yielded a result of 1500 memory block writes,
+
+
+1500 memory block of 10 KB or less, each written to 100 files, making it 150000 files output in total.
+
+The total time is 154549 miliseconds, or 154.5 seconds
+
+------------version 3.0
+now we can set the file size distribution arbitrarily, by locating the following code, 
+and changing the folloing parameters, you can set the file distribution
+#code section:
+#
+# int setpoint[8] = {20,50,70,90,100,125,150,160};
+#    for(i=0;i<iblock_size;i++)
+#    {
+#        n = setpoint[i%8]*1000; // n will float along the lines of the setpoint value
+#        mp[i]= (char*)malloc(n);
+#        memoryarr[i] = n;
+#        output[i] = (char*)malloc(200);
+#    }
+the setpoint array is the number of file size distribution key points, each point will conglomerate 100 random files within a 5 kb range,
+tweaking the array will give you the results you require,the items in the array are the size(Kb) of each file distribution point.
