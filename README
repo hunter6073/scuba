@@ -14,9 +14,7 @@ or
 
 sbatch runscript # the same as running ./runscript.sh, but in slurm
 
-
 currently, this code has yielded a result of 1500 memory block writes,
-
 
 1500 memory block of 10 KB or less, each written to 100 files, making it 150000 files output in total.
 
