@@ -1,6 +1,7 @@
 This is the second version of the Simple C Utility for I/O Benchmark Analysis
 the version is mature and can run on both linux bash and Slurm for multi node preference.
-
+Usage: This is used to benchmark file I/O for jobs on the clusters, you can use this to get a good estimate on how long a job could take
+using given parameters. Will be updating soon to intergrate more functionality and use this to estimate Machine learning jobs
 You can generate the output by running
 
 ./runscript.sh 1000    # giving it an argument of how many memory blocks we require
